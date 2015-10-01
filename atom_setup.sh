@@ -18,13 +18,14 @@ apm install docblockr
 apm install icon-fonts
 apm install format-sql
 apm install autoclose-html
-markdown-preview
+apm install pigments
 
 # optionals
 apm install seti-icons
 apm install php-class-tree
 apm install multi-cursor
 apm install sass-watch
+apm install bottom-dock
 apm install todo-manager
 apm install tabs-closer
 apm install pane-move-plus

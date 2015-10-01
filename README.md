@@ -4,17 +4,28 @@ The following steps are commonly called to in order to get a development IDE set
 
 - [ ] Install [GitHub Desktop](http://desktop.github.com)
 - [ ] Install [Atom](http://atom.io/)
-	- [ ] From Atoms menu, select **Atom -> Install Shell Commands**
+	- [ ] From the menu-bar, select **Atom -> Install Shell Commands**
 
 ### OSX Terminal Commands
-- [ ] Pre-configure base-install of Atom Packages, Themes and Syntaxes. <pre><code>sh atom_setup.sh</code></pre>
-	- [ ] Install [HomeBrew](http://brew.sh/)
-<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”</code></pre>
-	- [ ] Install WGet
-	<code>brew install wget</code>
-	- [ ] Install [Composer](http://getcomposer.org)
-	<code>curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer</code>
-- [ ] Configuring Public/Private Keys on your **PRODUCTION SERVER**
+
+The following steps will get all the command-line tools and dependencies up and running so that your environment is good to go. Note that you may need to update paths relative to your specific system configuration, although in most cases you can simply copy and paste and hit *return*.
+
+- [ ] Pre-configure base-install of Atom Packages, Themes and Syntaxes. <pre><code>sh [atom_setup.sh](https://github.com/frontalnugity/atom-configs/blob/master/atom_setup.sh)</code></pre>
+- [ ] Install [HomeBrew](http://brew.sh/)
+
+```shell
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
+```
+- [ ] Install WGet
+<pre><code>brew install wget</code></pre>
+- [ ] Install [Composer](http://getcomposer.org)
+<pre><code>curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer</code></pre>
+
+### Setting Public/Private SSH Keys
+  
+In order for deployment scripts and programs to run without errors or prompting to authenticate at each step, you’ll need to get SSH keys setup on your DEV and PRODUCTION servers so that they are pre-authenticated.  Perform the following in your Terminal window to get going.
+
+
 
 ### Blackfire.IO
 

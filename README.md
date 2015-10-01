@@ -10,14 +10,18 @@ The following steps are commonly called to in order to get a development IDE set
 
 The following steps will get all the command-line tools and dependencies up and running so that your environment is good to go. Note that you may need to update paths relative to your specific system configuration, although in most cases you can simply copy and paste and hit *return*.
 
-- [ ] Pre-configure base-install of Atom Packages, Themes and Syntaxes. <pre><code>sh [atom_setup.sh](https://github.com/frontalnugity/atom-configs/blob/master/atom_setup.sh)</code></pre>
+- [ ] Pre-configure base-install of Atom Packages, Themes and Syntaxes.
+```shell
+sh [atom_setup.sh](https://github.com/frontalnugity/atom-configs/blob/master/atom_setup.sh)
+```
 - [ ] Install [HomeBrew](http://brew.sh/)
-
 ```shell
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
 ```
 - [ ] Install WGet
-<pre><code>brew install wget</code></pre>
+```shell
+brew install wget
+```
 - [ ] Install [Composer](http://getcomposer.org)
 <pre><code>curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer</code></pre>
 

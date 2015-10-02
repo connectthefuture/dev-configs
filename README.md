@@ -12,7 +12,7 @@ The following steps will get all the command-line tools and dependencies up and 
 
 - [ ] Pre-configure base-install of Atom Packages, Themes and Syntaxes.
 ```shell
-sh [atom_setup.sh](https://github.com/frontalnugity/atom-configs/blob/master/atom_setup.sh)
+sh atom_setup.sh
 ```
 - [ ] Install [HomeBrew](http://brew.sh/)
 ```shell
@@ -23,13 +23,12 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew install wget
 ```
 - [ ] Install [Composer](http://getcomposer.org)
-<pre><code>curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer</code></pre>
+```shell
+curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
+```
 
 ### Setting Public/Private SSH Keys
-  
 In order for deployment scripts and programs to run without errors or prompting to authenticate at each step, you’ll need to get SSH keys setup on your DEV and PRODUCTION servers so that they are pre-authenticated.  Perform the following in your Terminal window to get going.
-
-
 
 ### Blackfire.IO
 
@@ -41,6 +40,9 @@ Blackfire is a very powerful profiler for PHP development, but it turns out if y
 ### [MAMP Pro](http://www.mamp.info) Considerations
 
 - [ ] Ensure OSX overides default PHP install in favor of MAMP Pros. To do this, add the following to your **.bash_profile**
-<code># Ensure MAMP Pro PHP is the default for OSX and add to path
+```shell
+# Ensure MAMP Pro PHP is the default for OSX and add to path
 PHP_VERSION=`ls /Applications/MAMP/bin/php/ | sort -n | tail -1`
-export PATH=/Applications/MAMP/bin/php/${PHP_VERSION}/bin:$PATH</code>
+export PATH=/Applications/MAMP/bin/php/${PHP_VERSION}/bin:$PATH
+```
+

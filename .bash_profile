@@ -1,6 +1,8 @@
 export PS1="\n\[$(tput sgr0)\]\[\033[38;5;245m\][\[$(tput sgr0)\]\[\033[38;5;32m\]\u\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;38m\]@\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;32m\]\h\[$(tput sgr0)\]\[\033[38;5;245m\]:\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;155m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;246m\]]\[$(tput sgr0)\]\[\033[38;5;15m\]\n\[$(tput sgr0)\]\[\033[38;5;220m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
 export PATH="$PATH:/usr/local/bin/"
+
+# Ensure MAMP Pro PHP is the default for OSX and add to path
+export PATH=/Applications/MAMP/bin/php/php5.6.10/bin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad

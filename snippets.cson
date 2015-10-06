@@ -20,6 +20,223 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
+'.twig':
+	'GF TWig HIDDEN':
+		'prefix' : 'gfhid'
+		'body' : '{{ forms.hidden("${1:formID}", ${2:value}) }}'
+	'GF TWig inputText':
+		'prefix' : 'gfit'
+		'body' : '{{ forms.inputText("${1:formID}", ${2:value}, ${3:30}, ${4:placeholder}, ${5:inlinceCSS}) }}'
+	'GF TWig TextArea':
+		'prefix' : 'gftextarea'
+		'body' : '{{ forms.textArea("${1:formID}", ${2:value}, ${3:6}, ${4:80}, ${5:mode}) }}'
+	'GF TWig iconButton':
+		'prefix' : 'gfib'
+		'body' : '{{ forms.iconButton("${1:formID}", "${2:post}", "{${3:edit}}", objectID, isMini) }}'
+	'GF TWig inputRange':
+		'prefix' : 'gfrange'
+		'body' : '{{ forms.inputRange("${1:formID}", ${2:0}, ${3:10}, "${4:min}", "${5:max}", "${6:range}") }}'
+	'GF TWig multiSelect':
+		'prefix' : 'gfmulti'
+		'body' : '{{ forms.multiSelect(${1:formID}, options, selectedOptions, title)  }}'
+	'GF TWig CheckBox':
+		'prefix' : 'gfcheckb'
+		'body' : "{{ forms.checkbox(${1:formID}, ${2:false}, '{$3:title}') }}"
+	'GF TWig dropDown':
+		'prefix' : 'gfdd'
+		'body' : '{{ forms.dropDown("${1:formID}", ${2:options}, ${3:selectedID})  }}'
+	'GF TWig formlabel':
+		'prefix' : 'gflab'
+		'body' : '{{ forms.formLabel("${1:formID"}, "${2:text}")  }}'
+	'GF TWig toggleIcon':
+		'prefix' : 'gftog'
+		'body' : '{{ forms.toggleIcon(${1:checked}) }}'
+	'GF TWig toggleButton':
+		'prefix' : 'gftob'
+		'body' : '{{ forms.toggleButton("$:{1:eventName}", id, ${3:value}) }}'
+	'GF TWig icon':
+		'prefix' : 'gficon'
+		'body' : '{{ forms.icon("${1:iconKey}", "$2", ${3:false}) }}'
+	'GF TWig placeholder':
+		'prefix' : 'gfplace'
+		'body' : '{{ forms.placeholder("${1:placeholderText}") }}'
+	'GF TWig dateRange':
+		'prefix' : 'gfdater'
+		'body' : '{{ forms.dateRange("${1:formID}", "${2:start}", "${3:end}") }}'
+	'GF TWig datePicker':
+		'prefix' : 'gfdpick'
+		'body' : '{{ forms.datePicker("${1:formID}", "$2", "${2:date}") }}'
+	'GF TWig slider':
+		'prefix' : 'gfslid'
+		'body' : '{{ forms.slider("${1:formID}", ${2:0}, ${3:10}, ${4:1}, ${5:5}, "${6:label}", ${7:true}) }}'
+	'Twig.ForEach':
+		'prefix' : 'twfe'
+		'body' : """
+		{% for ${1:item} in ${2:list} %}
+			$3
+		{% endfor %}"""
+	'Twig.ifElse':
+		'prefix' : 'twife'
+		'body' : """
+		{% if (${1:condition}) %}
+			$2
+		{% endif %}
+		"""
+	'Twig.macro':
+		'prefix' : 'twmac'
+		'body' : """
+		{% macro ${1:functionName}(${2:param}) %}
+		$3
+		{% endmacro %}
+		"""
+	'Twig.block':
+		'prefix' : 'twblo'
+		'body' : """
+		{{ block ${1:content} }}
+			$2
+		{% endblock %}
+   	"""
+	'Twig.Embed':
+		'prefix' : 'twemb'
+		'body' : """
+		{% embed "${1:twig}" %}
+	   	{% block ${2:content} %}
+				$3
+	   	{% endblock %}
+		{% endembed %}
+	 """
+	'Twig.Extends':
+		'prefix' : 'twext'
+		'body' : '{% extends "${1:.twig}" %}'
+	'Twig.ForCounter':
+		'prefix' : 'twfnum'
+		'body' : """
+		{% for i in ${1:0}..${2:10} %}
+			$3
+		{% endfor %}
+		"""
+	'Twig.include':
+		'prefix' : 'twinc'
+		'body' : """{% include '${1:baseName}.twig' %}"""
+'.php':
+	'GF PopulateRow(Item)':
+    'prefix'    : 'gfpopitem'
+    'body'      : '$this->${1:id} = getColumnValue($row, "${2:property}");'
+	'GF PopulateRow(Block)':
+    'prefix'    : 'gfpop'
+    'body'      : """
+		$this->id = getColumnValue($row, "${1:prefix}ID");
+		$this->value = $this->value;
+		$this->name = getColumnValue($row, "${1:prefix}Name");
+		$this->sortOrder = getColumnValue($row, "${1:prefix}SortOrder");
+		"""
+	'GF SqlCommand':
+    'prefix': 'gfsql'
+    'body': """
+			// Performs a SQL lookup based on passed ID and returns as a dataset.
+			// Default behavior: if ID = 0; return full list, otherwise return record for matching iD;
+			public static function ${1:SELECT}(${2:$id})
+			{
+				$sql = "call $3_select(?)";
+				$params	= array($id);
+				return execPDO($sql, $params);
+			}
+		"""
+	'GF Class Template':
+    'prefix': 'gfcl'
+    'body': """
+			<?php
+			namespace ${1:GF}
+			{
+			  class ${2:className}
+				extends \\\\GeniusFactor\\\\Fibr\\\\BaseObjects\\\\GFObject
+				{
+					public function  __construct()
+					{
+						parent::__construct();	// ensure root object properties are initialized
+					}
+
+					// initializes the object based on a passed datarow as retrieved from SQL
+					public function populateFromRow($row)
+					{
+						$this->id 			 = getColumnValue($row, "${3:prefix}ID");
+					  $this->name      = getColumnValue($row, "$3Name");
+					  $this->sortOrder = getColumnValue($row, "$3SortOrder");
+					}
+
+					// returns a new object, based on the contents of a passed data-row
+					// If populateFullTree is true, its recursive looksup and database activity (if applicable)
+					public  static function getAsObject($row, $populateFullTree=false)
+					{
+						$obj = new self();
+						$obj->populateFromRow($row);
+
+						if ($populateFullTree)
+						{
+							// TODO: Flush out functionality when population step is recursive
+						}
+					}
 
 
-	#da;slkd lsakdl;askd;laskdl;asdls;k;
+					// given an array of this object as a SQL result set, returns a new array of objects of this class, populated with passed values.
+					public  static function getAsArray($dataset)
+					{
+						$arr = array();
+						foreach ($dataset as $row)
+						{ $arr[] = self::getAsObject($row); }
+						return $arr;
+					}
+
+					// Returns a simple key/pair list suitable for populating DropDown lists
+			    public static function getAsDropDownOptions()
+			    {
+			        $sortOrder = "ORDER BY $3SortOrder ASC, $3Name ASC;";
+			        return getDropDownOptions("textblock_idx", "$3ID", "$3Name", $sortOrder);
+			    }
+
+
+					// Returns the object in standard string representation
+					public function __toString()
+					{
+						// TODO: Complete toString functionality
+						return $this->name;
+					}
+
+
+					// Performs a SQL lookup based on passed ID and returns as a dataset.
+					// Default behavior: if ID = 0; return full list, otherwise return record for matching iD;
+					public static function SELECT($id)
+					{
+						$sql = "call $3_select(?)";
+						$params	= array($id);
+						return execPDO($sql, $params);
+					}
+
+					// Calls appropriate code to have the passed object stored into SQL.
+					// Object is passed by reference.
+					public static function INSERT($obj)
+					{
+						$sql = "call $3_insert(?, ?)";
+						$params	= array($obj->name, $obj->sortOrder);
+						return execPDO($sql, $params);
+					}
+
+					// Given the passed object, performs necesary steps to update the object to its corresponding record(s) in the database.
+					// Object is passed by reference.
+					public static function UPDATE($obj)
+					{
+						$sql = "call $3_update(?,?,?)";
+						$params = array($obj->id, $obj->name, $obj->sortOrder);
+						return exePDO($sql, $params);
+					}
+
+					// Deletes a record of this type in the database, based on passed ID
+					public static function DELETE($id)
+					{
+						$sql = "call $3_delete(?)";
+						$params	= array($id);
+						return exePDO($sql, $params);
+					}
+				}
+			}
+		"""

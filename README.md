@@ -26,7 +26,10 @@ brew install wget
 ```shell
 curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
 ```
-
+- [ ] Install [PHP-CS Fixer](http://cs.sensiolabs.org/)
+```shell
+brew install homebrew/php/php-cs-fixer
+```
 ### Setting Public/Private SSH Keys
 In order for deployment scripts and programs to run without errors or prompting to authenticate at each step, you’ll need to get SSH keys setup on your DEV and PRODUCTION servers so that they are pre-authenticated.  Perform the following in your Terminal window to get going.
 

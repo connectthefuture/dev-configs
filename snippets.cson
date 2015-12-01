@@ -92,7 +92,7 @@
 	'Twig.block':
 		'prefix' : 'twblo'
 		'body' : """
-		{{ block ${1:content} }}
+		{% block ${1:content} %}
 			$2
 		{% endblock %}
    	"""

@@ -3,6 +3,7 @@ export PATH="$PATH:/usr/local/bin/"
 
 # Ensure MAMP Pro PHP is the default for OSX and add to path
 export PATH=/Applications/MAMP/bin/php/php5.6.10/bin:$PATH
+export PATH=/Users/nuge/fibr/vendor/phpdocumentor/phpdocumentor/bin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad

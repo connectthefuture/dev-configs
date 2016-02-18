@@ -20,7 +20,7 @@
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
-'.twig':
+'*.twig':
 	'GF TWig HIDDEN':
 		'prefix' : 'gfhid'
 		'body' : '{{ forms.hidden("${1:formID}", ${2:value}) }}'
@@ -118,7 +118,42 @@
 	'Twig.include':
 		'prefix' : 'twinc'
 		'body' : """{% include '${1:baseName}.twig' %}"""
-'.php':
+
+'*.sql':
+	'GFTriggerDATES':
+		'prefix' : 'gftrigdate'
+		'body' : """
+			DROP TRIGGER `trig_${1:tbl}_insert`;
+			DROP TRIGGER `trig_${1:tbl}_update`;
+			CREATE TRIGGER `trig_${1:tbl}_insert`
+				BEFORE UPDATE ON `${1:tbl}`
+				FOR EACH ROW
+				SET
+					NEW.${2:prefix}DateCreated = IFNULL(NEW.${2:prefix}DateCreated, NOW()),
+					NEW.${2:prefix}DateModified = IFNULL(NEW.${2:prefix}DateModified, NOW());
+			CREATE TRIGGER `trig_${1:tbl}_update`
+				BEFORE INSERT ON `${1:tbl}`
+				FOR EACH ROW
+				SET
+					NEW.${2:prefix}DateModified = NOW();'"""
+'*.sql':
+	'GFTriggerDATES':
+		'prefix' : 'gftrigdate'
+		'body' : """
+			DROP TRIGGER `trig_${1:tbl}_insert`;
+			DROP TRIGGER `trig_${1:tbl}_update`;
+			CREATE TRIGGER `trig_${1:tbl}_insert`
+				BEFORE UPDATE ON `${1:tbl}`
+				FOR EACH ROW
+				SET
+					NEW.${2:prefix}DateCreated = IFNULL(NEW.${2:prefix}DateCreated, NOW()),
+					NEW.${2:prefix}DateModified = IFNULL(NEW.${2:prefix}DateModified, NOW());
+			CREATE TRIGGER `trig_${1:tbl}_update`
+				BEFORE INSERT ON `${1:tbl}`
+				FOR EACH ROW
+				SET
+					NEW.${2:prefix}DateModified = NOW();'"""
+'*.php':
 	'GF PopulateRow(Item)':
     'prefix'    : 'gfpopitem'
     'body'      : '$this->${1:id} = getColumnValue($row, "${2:property}");'

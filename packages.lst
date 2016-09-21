@@ -8,6 +8,7 @@ fonts
 antialiased
 docblockr
 format-sql
+bottom-dock
 multi-cursor
 todo-manager
 compile-watch

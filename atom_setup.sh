@@ -1,6 +1,5 @@
 # Pre-requesites
-sh init_prequisites.sh
-
+sh init_prerequisites.sh
 
 # reset atom environment
 apm clean

@@ -5,16 +5,11 @@ project-manager
 pigments
 tree-view-git-status
 fonts
-antialiased
 docblockr
 format-sql
 bottom-dock
-multi-cursor
-todo-manager
-compile-watch
 atom-beautify
 sort-lines
-activate-power-mode
 aligner
 aligner-css
 aligner-php
@@ -23,8 +18,6 @@ aligner-javascript
 laravel
 blade-spacer
 seti-icons
-file-icons
-file-type-icons
 vue-snippets
 blade-snippets
 laravel-5-snippets

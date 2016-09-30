@@ -21,10 +21,15 @@
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
 '*.sql':
-	'GF Drop SPROC':
+	'Drop Stored Procedure (SPROC)':
 		'prefix':'sqldropsproc'
+		'description':'Standard command to drop a stored procedure (If exists)'
 		'body':'DROP PROCEDURE IF EXISTS `$1`;'
-	'GF SQL Table':
+	'Create Database':
+		'prefix':'sqlcreatedb'
+		'description':'Initialize a new DB with standard UTF8 encoding'
+		'body':'CREATE DATABASE IF NOT EXISTS `${1:databaseName}` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci'
+	'Create Table':
 		'prefix' : 'sqltbl'
 		'description':'Creates a standard SQL table with date properties and status reference'
 		'descriptionMoreUrl':'https://github.com/frontalnugity/atom-configs'
@@ -45,7 +50,7 @@
 				CREATE TRIGGER `trig_$1_insert` BEFORE UPDATE ON `$1` FOR EACH ROW SET NEW.$2DateCreated = IFNULL(NEW.$2DateCreated, NOW()), NEW.$2DateModified = IFNULL(NEW.$2DateModified, NOW());
 				CREATE TRIGGER `trig_$1_update` BEFORE INSERT ON `$1` FOR EACH ROW SET NEW.$2DateModified = NOW();
 		"""
-	'GF SQL Stored Procedure (SELECT)':
+	'Create SQL Stored Procedure (SELECT)':
 		'prefix':'sqlsproc_select'
 		'description':'Standard definition for typical SELECT SPROCS (Stored Procedures)'
 		'descriptionMoreUrl':'https://github.com/frontalnugity/atom-configs'
@@ -66,7 +71,7 @@
 		 	;;
 			delimiter ;
 		"""
-	'GF SQL Stored Procedure (DELETE)':
+	'Create SQL Stored Procedure (DELETE)':
 		'prefix':'sqlsproc_delete'
 		'description':'Standard definition for typical DELETE SPROC (Stored Procedures)'
 		'descriptionMoreUrl':'https://github.com/frontalnugity/atom-configs'
@@ -83,7 +88,7 @@
 		 	;;
 			delimiter ;
 		"""
-	'GF SQL Stored Procedure (UPDATE)':
+	'Create SQL Stored Procedure (UPDATE)':
 		'prefix':'sqlsproc_update'
 		'description':'Standard definition for typical UPDATE SPROC (Stored Procedures)'
 		'descriptionMoreUrl':'https://github.com/frontalnugity/atom-configs'
@@ -102,7 +107,7 @@
 		 	;;
 			delimiter ;
 		"""
-	'GF SQL Stored Procedure (INSERT)':
+	'Create SQL Stored Procedure (INSERT)':
 		'prefix':'sqlsproc_update'
 		'description':'Standard definition for typical UPDATE SPROC (Stored Procedures)'
 		'descriptionMoreUrl':'https://github.com/frontalnugity/atom-configs'
@@ -123,7 +128,7 @@
 			;;
 			delimiter ;
 		"""
-	'GF SQL Stored Procedure (IUDS)':
+	'Create SQL Stored Procedure (IUDS)':
 		'prefix':'sqlsproc_all'
 		'description':'Standard IUDS set of stored procedures'
 		'body':"""
@@ -164,9 +169,10 @@
 				(IN pID int)
 				BEGIN
 					IF (pID > 0) THEN
-						SELECT FROM vw_$2 WHERE $4=pID;
+						SELECT * FROM vw_$2 WHERE $4=pID;
 					ELSE
 						SELECT * FROM vw_$2;
+					END IF;
 				END;
 				;;
 

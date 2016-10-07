@@ -19,7 +19,19 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
-
+'*.blade.php':
+	'Form Label':
+		'prefix':'formlbl'
+		'body':'Form::label(\'${1:id}\', \'${2:description}\');'
+	'Form TextArea':
+		'prefix':'formtext'
+		'body':'Form::text(\'${1:name}\', ${2:\$value});'
+	'Form Hidden':
+		'prefix':'formhidden'
+		'body':'Form::hidden(\'${1:name}\', ${2:\$value});'
+	'Form Password':
+		'prefix':'formpassword'
+		'body':'Form::password(\'${1:password}\', array(\'placeholder\' => \'Password\'));'
 '*.sql':
 	'Drop Stored Procedure (SPROC)':
 		'prefix':'sqldropsproc'

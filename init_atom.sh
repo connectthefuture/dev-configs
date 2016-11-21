@@ -1,5 +1,5 @@
 # Install Atom
-if [ ! -f "/Applications/Atom.app" ] then
+if [ ! -f "/Applications/Atom.app" ]; then
 	brew cask install atom
 fi
 

@@ -5,24 +5,24 @@ cd ~/
 ROOT_PATH=`pwd -P`
 
 # Set Profile
-if [[ -f $ROOT_PATH/.bash_profile ]]; then
-  rm $ROOT_PATH/.bash_profile;
+if [[ -f ~/.bash_profile ]]; then
+	rm ~/.bash_profile;
 fi
-ln -s $SRC_PATH/.bash_profile $ROOT_PATH/.bash_profile
+	ln -s $SRC_PATH/.bash_profile ~/.bash_profile
 
 # Redirect snippets
-if [[ -f $ROOT_PATH/.atom/snippets.cson ]]; then
-  rm $ROOT_PATH/.atom/snippets.cson;
+if [[ -f ~/.atom/snippets.cson ]]; then
+	rm ~/.atom/snippets.cson;
 fi
-ln -s $SRC_PATH/snippets.cson $ROOT_PATH/.atom/snippets.cson
-
+	ln -s $SRC_PATH/atom/snippets.cson ~/.atom/snippets.cson
 
 # global git ignore
-if [[ -f $ROOT_PATH/.gitignore_global ]]; then
-  rm $ROOT_PATH/.gitignore_global;
+if [[ -f ~/.gitignore_global ]]; then
+  rm ~/.gitignore_global;
 fi
-ln -s $SRC_PATH/.gitignore_global $ROOT_PATH/.gitignore_global
-git config --global core.excludesfile $ROOT_PATH/.gitignore_global
+	ln -s $SRC_PATH/git/.gitignore_global ~/.gitignore_global
 
+# configure git for globals
+git config --global core.excludesfile ~/.gitignore_global
 
 ECHO "Symbolic links created!"

@@ -14,11 +14,9 @@ brew cask install font-abel
 brew cask install font-aboriginal-sans
 brew cask install font-aboriginal-serif
 brew cask install font-abril-fatface
-brew cask install font-aclonica
 brew cask install font-acme
 brew cask install font-actor
 brew cask install font-adamina
-brew cask install font-adinatha-tamil-brahmi
 brew cask install font-advent-pro
 brew cask install font-african-sans
 brew cask install font-african-serif
@@ -55,8 +53,9 @@ brew cask install font-anaheim
 brew cask install font-andada-sc
 brew cask install font-andada
 brew cask install font-andagii
-brew cask install font-andale-mono
-brew cask install font-andika
+
+
+
 brew cask install font-angkor
 brew cask install font-anka-coder
 brew cask install font-annie-use-your-telescope
@@ -65,7 +64,6 @@ brew cask install font-anonymous-pro
 brew cask install font-antic-didone
 brew cask install font-antic-slab
 brew cask install font-antic
-brew cask install font-antinoou
 brew cask install font-anton
 brew cask install font-arapey
 brew cask install font-arbutus-slab
@@ -96,7 +94,6 @@ brew cask install font-averia-sans-libre
 brew cask install font-averia-serif-libre
 brew cask install font-awesome-terminal-fonts
 brew cask install font-babelstone-han
-brew cask install font-babelstone-modern
 brew cask install font-bad-script
 brew cask install font-baloo
 brew cask install font-balthazar
@@ -136,7 +133,6 @@ brew cask install font-buenard
 brew cask install font-bukyvede-bold
 brew cask install font-bukyvede-italic
 brew cask install font-bukyvede-regular
-brew cask install font-bungee
 brew cask install font-butcherman
 brew cask install font-butler
 brew cask install font-butterfly-kids
@@ -145,7 +141,6 @@ brew cask install font-cabin-sketch
 brew cask install font-cabin
 brew cask install font-caesar-dressing
 brew cask install font-cagliostro
-brew cask install font-calligraffitti
 brew cask install font-cambo
 brew cask install font-camingocode
 brew cask install font-candal
@@ -325,7 +320,6 @@ brew cask install font-gabriela
 brew cask install font-gafata
 brew cask install font-galdeano
 brew cask install font-galindo
-brew cask install font-gandom
 brew cask install font-genjyuugothic-l
 brew cask install font-genjyuugothic-x
 brew cask install font-genjyuugothic

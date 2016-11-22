@@ -105,7 +105,7 @@ Installs all the default client applications commonly used in development; only 
 	- [VLC](http://www.videolan.org/)
 
 
-- `sh init-fonts.sh`<br>
+- `sh init_fonts.sh`<br>
 Installs all the fonts found in the public/freely licensed font collections found at [https://github.com/caskroom/homebrew-fonts](https://github.com/caskroom/homebrew-fonts).  Long install time as this currently includes all 2500 fonts, each is downloaded and installed one-by-one.
 
 

@@ -335,7 +335,6 @@ brew cask install font-geostar
 brew cask install font-germania-one
 brew cask install font-gfs-didot
 brew cask install font-gfs-neohellenic
-brew cask install font-gidole
 brew cask install font-gilda-display
 brew cask install font-give-you-glory
 brew cask install font-glass-antiqua

@@ -17,3 +17,15 @@ fi
 
 # subscribe to fonts tap
 brew tap caskroom/Fonts
+
+
+
+# Add support for some additional Quick-Look plugins
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install quicklook-csv
+brew cask install betterzipql
+brew cask install qlimagesize
+brew cask install quicklookase
+brew cask install qlvideo

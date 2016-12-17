@@ -24,4 +24,6 @@ alias f='open -a Finder ./'                 # f: Opens current directory in MacO
 alias cleanDS="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Copy public ssh key to clipboard
-alias "cat ~/.ssh/id_rsa.pub | pbcopy"
+alias copyssh="cat ~/.ssh/id_rsa.pub | pbcopy"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

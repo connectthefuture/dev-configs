@@ -12,7 +12,7 @@ fi
 
 # Install Gitkraken
 if [ ! -f "/Applications/GitKraken.app" ]; then
-	brew cask install GitKraken
+	brew cask install gitkraken
 fi
 
 # subscribe to fonts tap

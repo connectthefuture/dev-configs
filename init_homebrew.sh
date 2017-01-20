@@ -18,6 +18,10 @@ fi
 # subscribe to fonts tap
 brew tap caskroom/Fonts
 
+# upgrade PHP to 70
+brew tap homebrew/homebrew-php
+brew install php70
+
 
 
 # Add support for some additional Quick-Look plugins

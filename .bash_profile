@@ -19,7 +19,7 @@ alias whatismyip='curl ipecho.net/plain; echo'
 alias showhiddenfiles='defaults write com.apple.finder AppleShowAllFiles -bool TRUE'
 alias hidehiddenfiles='defaults write com.apple.finder AppleShowAllFiles -bool FALSE'
 alias f='open -a Finder ./'                 # f: Opens current directory in MacOS Finder
-alias vagrantssh='cd '/Volumes/geniusfactor/github/virtual-machines/vm-dev'; vagrant ssh'
+alias nsl='dig @8.8.8.8 NS '
 
 #   cleanupDS:  Recursively delete .DS_Store files
 alias cleanDS="find . -type f -name '*.DS_Store' -ls -delete"
